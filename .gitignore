@@ -1,0 +1,12 @@
+target/
+*/target/
+.DS_Store
+.idea/
+*.iml
+
+# локальні допоміжні файли
+scripts/diagrams.py
+results*/plots/petri_net.png
+results*/plots/petri_duplex_satellite.png
+results*/plots/process.png
+results-quick/

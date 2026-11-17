@@ -1,0 +1,176 @@
+Протокол бібліотеки PetriObjLib. T = 40 мс.
+Позиції: A.Gen A.Incoming A.BufFree A.Queue A.ChFree A.Arrived A.Delivered A.SatCalls A.Lost B.Gen B.Incoming B.BufFree B.Queue B.ChFree B.Arrived B.Delivered B.SatCalls B.Lost Sat.Free Sat.Line Sat.Delivered 
+Mark in Net  D3_DataTransfer   0  0  2  0  1  0  0  0  0  0  0  2  0  1  0  0  0  0  1  0  0  
+ Time progress: time = 8.07404290933486
+
+ time =   8.07404290933486   Event 'B.Arrival'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  2  0  1  0  0  0  0  1  1  2  0  1  1  0  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  2  0  1  0  0  0  0  0  0  1  0  1  1  0  0  0  1  0  0  
+ Time progress: time = 8.07404290933486
+
+ time =   8.07404290933486   Event 'B.ToBuffer'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  2  0  1  0  0  0  0  0  0  1  1  1  1  0  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  2  0  1  0  0  0  0  0  0  1  0  0  1  0  0  0  1  0  0  
+ Time progress: time = 9.655779378149221
+
+ time =   9.655779378149221   Event 'A.Arrival'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   1  1  2  0  1  1  0  0  0  0  0  1  0  0  1  0  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  1  1  0  0  0  0  0  1  0  0  1  0  0  0  1  0  0  
+ Time progress: time = 9.655779378149221
+
+ time =   9.655779378149221   Event 'A.ToBuffer'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  1  1  1  0  0  0  0  0  1  0  0  1  0  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  1  0  0  0  0  0  1  0  0  1  0  0  0  1  0  0  
+ Time progress: time = 16.867675070289366
+
+ time =   16.867675070289366   Event 'B.Arrival'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  1  0  0  0  1  1  1  0  0  2  0  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  1  0  0  0  0  0  0  0  0  2  0  0  0  1  0  0  
+ Time progress: time = 16.867675070289366
+
+ time =   16.867675070289366   Event 'B.ToBuffer'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  1  0  0  0  0  0  0  1  0  2  0  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  1  0  0  0  0  0  0  1  0  2  0  0  0  1  0  0  
+ Time progress: time = 18.07404290933486
+
+ time =   18.07404290933486   Event 'B.Transmit'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  1  0  0  0  0  0  1  1  1  2  1  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  1  0  0  0  0  0  1  0  0  2  1  0  0  1  0  0  
+ Time progress: time = 18.519950097691446
+
+ time =   18.519950097691446   Event 'A.Arrival'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   1  1  1  0  0  2  0  0  0  0  0  1  0  0  2  1  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  0  0  0  2  0  0  0  0  0  1  0  0  2  1  0  0  1  0  0  
+ Time progress: time = 18.519950097691446
+
+ time =   18.519950097691446   Event 'A.ToBuffer'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  0  1  0  2  0  0  0  0  0  1  0  0  2  1  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  0  1  0  2  0  0  0  0  0  1  0  0  2  1  0  0  1  0  0  
+ Time progress: time = 19.65577937814922
+
+ time =   19.65577937814922   Event 'A.Transmit'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  1  1  2  1  0  0  0  0  1  0  0  2  1  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  2  1  0  0  0  0  1  0  0  2  1  0  0  1  0  0  
+ Time progress: time = 25.04919899624594
+
+ time =   25.04919899624594   Event 'B.Arrival'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  2  1  0  0  1  1  1  0  0  3  1  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  2  1  0  0  0  0  0  0  0  3  1  0  0  1  0  0  
+ Time progress: time = 25.04919899624594
+
+ time =   25.04919899624594   Event 'B.ToBuffer'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  2  1  0  0  0  0  0  1  0  3  1  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  2  1  0  0  0  0  0  1  0  3  1  0  0  1  0  0  
+ Time progress: time = 28.07404290933486
+
+ time =   28.07404290933486   Event 'B.Transmit'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  2  1  0  0  0  0  1  1  1  3  2  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  2  1  0  0  0  0  1  0  0  3  2  0  0  1  0  0  
+ Time progress: time = 29.65577937814922
+
+ time =   29.65577937814922   Event 'A.Transmit'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  2  0  1  2  2  0  0  0  0  1  0  0  3  2  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  2  0  1  2  2  0  0  0  0  1  0  0  3  2  0  0  1  0  0  
+ Time progress: time = 31.44972161257868
+
+ time =   31.44972161257868   Event 'A.Arrival'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   1  1  2  0  1  3  2  0  0  0  0  1  0  0  3  2  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  1  3  2  0  0  0  0  1  0  0  3  2  0  0  1  0  0  
+ Time progress: time = 31.44972161257868
+
+ time =   31.44972161257868   Event 'A.ToBuffer'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  1  1  3  2  0  0  0  0  1  0  0  3  2  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  3  2  0  0  0  0  1  0  0  3  2  0  0  1  0  0  
+ Time progress: time = 34.392100279902934
+
+ time =   34.392100279902934   Event 'B.Arrival'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  3  2  0  0  1  1  1  0  0  4  2  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  3  2  0  0  0  0  0  0  0  4  2  0  0  1  0  0  
+ Time progress: time = 34.392100279902934
+
+ time =   34.392100279902934   Event 'B.ToBuffer'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  3  2  0  0  0  0  0  1  0  4  2  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  3  2  0  0  0  0  0  1  0  4  2  0  0  1  0  0  
+ Time progress: time = 38.074042909334864
+
+ time =   38.074042909334864   Event 'B.Transmit'
+                       is occuring for the object   D3_DataTransfer
+
+Markers output:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  3  2  0  0  0  0  1  1  1  4  3  0  0  1  0  0  
+Markers input:
+Mark in Net  D3_DataTransfer   0  0  1  0  0  3  2  0  0  0  0  1  0  0  4  3  0  0  1  0  0  
+ Time progress: time = 41.449721612578685
+
