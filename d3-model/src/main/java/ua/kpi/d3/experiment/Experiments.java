@@ -532,17 +532,34 @@ public final class Experiments {
         java.util.function.DoubleUnaryOperator gammaCdf = x -> Stats.regularizedGammaP(shape, x / scale);
         double chiGamma = chiSquareEquiprobable(d, gammaCdf, k);
         double crGamma = Stats.chiSquareQuantile(0.95, k - 1 - 2);
+
+        double[] logs = java.util.Arrays.stream(d).map(Math::log).toArray();
+        double muLn = Stats.mean(logs);
+        double sigmaLn = Stats.std(logs);
+        java.util.function.DoubleUnaryOperator lnCdf = x -> x <= 0 ? 0 : Stats.normalCdf((Math.log(x) - muLn) / sigmaLn);
+        double chiLn = chiSquareEquiprobable(d, lnCdf, k);
+        double crLn = Stats.chiSquareQuantile(0.95, k - 1 - 2);
         out.printf("Хі-квадрат, %d інтервалів, alpha = 0.05:%n", k);
         out.printf("%-38s %10s %10s %10s%n", "закон", "хі2", "хі2кр", "приймається");
         out.printf("%-38s %10.1f %10.1f %10s%n", String.format(java.util.Locale.US, "експоненціальний (%.1f мс)", mean),
                 chiExp, crExp, chiExp < crExp ? "так" : "ні");
         out.printf("%-38s %10.1f %10.1f %10s%n", String.format(java.util.Locale.US, "гамма (a = %.3f, b = %.1f мс)", shape, scale),
                 chiGamma, crGamma, chiGamma < crGamma ? "так" : "ні");
-        String closer = chiGamma < chiExp ? "гамма" : "експоненціальний";
-        if (chiExp < crExp || chiGamma < crGamma) {
-            out.conclusion("закон розподілу приймається: " + (chiGamma < crGamma ? "гамма" : "експоненціальний") + ".");
+        out.printf("%-38s %10.1f %10.1f %10s%n", String.format(java.util.Locale.US, "логнормальний (mu = %.3f, s = %.3f)", muLn, sigmaLn),
+                chiLn, crLn, chiLn < crLn ? "так" : "ні");
+        String[] laws = {"експоненціальний", "гамма", "логнормальний"};
+        double[] chi = {chiExp, chiGamma, chiLn};
+        double[] cr = {crExp, crGamma, crLn};
+        int best = 0;
+        for (int i = 1; i < chi.length; i++) {
+            if (chi[i] < chi[best]) {
+                best = i;
+            }
+        }
+        if (chi[best] < cr[best]) {
+            out.conclusion("закон розподілу приймається: " + laws[best] + ".");
         } else {
-            out.conclusion("жоден закон не приймається, ближчий - " + closer + ".");
+            out.conclusion("жоден закон не приймається, ближчий - " + laws[best] + ".");
         }
 
         double w = 25;
@@ -554,12 +571,14 @@ public final class Experiments {
             long obs = java.util.Arrays.stream(d).filter(v -> v >= lo && v < hi).count();
             double eExp = d.length * (expCdf.applyAsDouble(hi) - expCdf.applyAsDouble(lo));
             double eGam = d.length * (gammaCdf.applyAsDouble(hi) - gammaCdf.applyAsDouble(lo));
-            rows.add(Output.row(lo, hi, obs, eExp, eGam));
+            double eLn = d.length * (lnCdf.applyAsDouble(hi) - lnCdf.applyAsDouble(lo));
+            rows.add(Output.row(lo, hi, obs, eExp, eGam, eLn));
         }
-        out.csv("call_intervals_hist.csv", "BinLeft_ms;BinRight_ms;Observed;ExpectedExponential;ExpectedGamma", rows);
+        out.csv("call_intervals_hist.csv", "BinLeft_ms;BinRight_ms;Observed;ExpectedExponential;ExpectedGamma;ExpectedLognormal",
+                rows);
         out.csv("call_intervals_summary.csv", "n;Mean_ms;Std_ms;CV;Min_ms;Max_ms;ChiExp;ChiExpCrit;GammaShape;GammaScale_ms;"
-                + "ChiGamma;ChiGammaCrit", List.of(Output.row(d.length, mean, sd, cv, Stats.min(d), Stats.max(d), chiExp,
-                crExp, shape, scale, chiGamma, crGamma)));
+                + "ChiGamma;ChiGammaCrit;LnMu;LnSigma;ChiLn;ChiLnCrit", List.of(Output.row(d.length, mean, sd, cv,
+                Stats.min(d), Stats.max(d), chiExp, crExp, shape, scale, chiGamma, crGamma, muLn, sigmaLn, chiLn, crLn)));
     }
 
     private static double chiSquareEquiprobable(double[] d, java.util.function.DoubleUnaryOperator cdf, int k) {

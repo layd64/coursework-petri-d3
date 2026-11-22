@@ -112,6 +112,12 @@ def plot_steady():
     axes[2].set_xlabel("Обсяг буфера N, пакетів")
     axes[2].set_ylabel("Pвтр")
     axes[2].set_title("Ймовірність втрати пакета (стаціонарний режим)")
+    for ax in axes:
+        top = ax.secondary_xaxis("top", functions=(lambda x: x - 1, lambda x: x + 1))
+        top.set_xticks([int(x) - 1 for x in n])
+        top.set_xlabel("Місць для очікування K = N - 1", fontsize=9)
+        ax.set_xticks([int(x) for x in n])
+        ax.title.set_y(1.2)
     save(fig, "buffer_steady.png")
 
 
@@ -296,6 +302,8 @@ def plot_call_intervals():
     mid = [(l + h) / 2 for l, h in zip(lo, hi)]
     ax.plot(mid, num(d["ExpectedExponential"]), "o-", color="tab:red", ms=3, label="експоненціальний закон")
     ax.plot(mid, num(d["ExpectedGamma"]), "s-", color="tab:green", ms=3, label="гамма-закон (метод моментів)")
+    if "ExpectedLognormal" in d:
+        ax.plot(mid, num(d["ExpectedLognormal"]), "^-", color="tab:purple", ms=3, label="логнормальний закон")
     ax.set_xlabel("Інтервал між викликами супутникової лінії, мс")
     ax.set_ylabel("Кількість інтервалів")
     ax.set_title("Розподіл інтервалу між викликами супутникової лінії (N = 2, 1 год)")
@@ -358,9 +366,9 @@ def draw_uml():
     # рядок 2: модель
     ax.text(0.2, 11.75, "Модель та імітація", fontsize=11, fontweight="bold")
     cls("ModelParams", col[0], 11.4, ["+arrivalMean, arrivalDev", "+channelTime, bufferSize", "+satMean, satDev",
-                                      "+base() / with...()"])
+                                      "+duplexSatellite", "+base() / with...()"])
     cls("D3NetFactory", col[1], 11.4, ["+LOCK: Object", "+create(p): D3Net", "-buildPoint(...)"])
-    cls("D3Net", col[2], 11.4, ["+net: PetriNet", "+a, b: Point", "+satFree, satLine", "+satTransmit"])
+    cls("D3Net", col[2], 11.4, ["+net: PetriNet", "+params: ModelParams", "+a, b: Point", "+satellites: Satellite[]"])
     cls("ObservedPetriSim", col[3], 11.4, ["-observers: List", "+doT()  (перевизначено)", "~finish(T)"])
     cls("D3Simulation", col[4], 11.4, ["-net, sim, model", "+addObserver(o)", "+run(T, warmup)"], w=3.3)
     cls("Runner", 19.75, 11.4, ["-pool: Executor", "+replicate(...)"], w=2.2)
